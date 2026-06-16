@@ -1,0 +1,42 @@
+// write a program to find maximum frequency element in an array.
+
+import java.util.Scanner;
+
+public class problem_62{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int maxFrequency = 0;
+        int maxElement = arr[0];
+
+        for (int i = 0; i < n; i++) {
+            int count = 1;
+
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+
+            if (count > maxFrequency) {
+                maxFrequency = count;
+                maxElement = arr[i];
+            }
+        }
+
+        System.out.println("Maximum frequency element is: " + maxElement);
+        System.out.println("Frequency is: " + maxFrequency);
+
+        sc.close();
+    }
+}
